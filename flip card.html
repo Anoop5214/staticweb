@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Card</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+     .flip-card{
+        width: 300px;
+        height: 300px;
+        perspective: 1000px;
+        
+
+     }
+     
+     .flip-card-inner{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0px 4px 8px 0px;
+     }
+      
+     .flip-card-inner:hover {
+        transform: rotatex(180deg);
+     }
+
+     .flip-card-front,.flip-card-back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+     }
+
+
+     .flip-card-front{
+        background-color: rgb(130, 133, 133);
+     }
+     .flip-card img{
+        width: 100%;
+        height: 75%;
+        object-fit: cover;
+     }
+
+     .flip-card-back{
+        background-color: brown;
+        transform: rotatex(180deg);
+     }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+            <img src="data:image/jpeg;base64,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" alt="">
+            <h2 style="text-align: center;"> Apple logo </h2>
+            </div>
+            <div class="flip-card-back">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum expedita dolor optio quis non, quibusdam nam omnis repellat! Eius totam veritatis odit autem! Provident impedit ut dignissimos consequatur</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</head>
